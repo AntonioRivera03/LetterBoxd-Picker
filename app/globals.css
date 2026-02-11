@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
+/* @plugin "tailwindcss-animate"; */
+
+@theme {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 20, 20, 20;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: transparent;
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes indeterminate-bar {
+  0% {
+    transform: translateX(-100%);
+    width: 20%;
+  }
+
+  50% {
+    transform: translateX(50%);
+    width: 50%;
+  }
+
+  100% {
+    transform: translateX(200%);
+    width: 20%;
+  }
+}
+
+.animate-indeterminate-bar {
+  animation: indeterminate-bar 1.5s infinite linear;
 }
