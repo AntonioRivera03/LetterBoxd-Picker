@@ -152,7 +152,7 @@ const NoiseBackground: React.FC<NoiseBackgroundProps> = ({ speed = 1, particleCo
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 z-[-1] w-full h-full pointer-events-none bg-black"
+            className="fixed inset-0 z-[-1] w-full h-full pointer-events-none bg-black blur-sm"
         />
     );
 };
